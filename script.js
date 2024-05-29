@@ -18,6 +18,8 @@ const spriteAnimations = [
   // "jump" = {},
   // "run" = {},
 ];
+
+let playerState = "run";
 const animationStates = [
   {
     name: "idle",
@@ -78,9 +80,9 @@ function animate() {
   ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
   // ctx.fillRect(50, 50, 100, 100);
   // ctx.drawImage(image, sx, sy, sw, sh, dx, dy, dw, dh);
-  let position = Math.floor(gameFrame / staggerFrames) % spriteAnimations["jump"].loc.length;
+  let position = Math.floor(gameFrame / staggerFrames) % spriteAnimations[playerState].loc.length;
   let frameX = spriteWidth * position;
-  let frameY = spriteAnimations["jump"].loc[position].y;
+  let frameY = spriteAnimations[playerState].loc[position].y;
   ctx.drawImage(playerImage, frameX, frameY, spriteWidth, spriteHeight, 0, 0, spriteWidth, spriteHeight);
 
   if (gameFrame % staggerFrames == 0) {
