@@ -1,4 +1,9 @@
+let playerState = "run";
 const canvas = document.getElementById("canvas1");
+const dropdown = document.getElementById("animations");
+dropdown.addEventListener("change", function (e) {
+  playerState = e.target.value;
+});
 const ctx = canvas.getContext("2d");
 const CANVAS_WIDTH = (canvas.width = 600);
 const CANVAS_HEIGHT = (canvas.height = 600);
@@ -19,7 +24,6 @@ const spriteAnimations = [
   // "run" = {},
 ];
 
-let playerState = "run";
 const animationStates = [
   {
     name: "idle",
