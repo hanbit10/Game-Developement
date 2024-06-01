@@ -9,7 +9,6 @@ class Layer {
     this.y = 0;
     this.width = 2400;
     this.height = 700;
-    // this.x2 = this.width;
     this.image = image;
     this.speedModifier = speedModifier;
     this.speed = gameSpeed * this.speedModifier;
@@ -21,6 +20,7 @@ class Layer {
       this.x = 0
     }
     this.x = Math.floor(this.x - this.speed);
+    // this.x = gameFrame * this.speed % this.width
   }
 
   draw(){
@@ -41,6 +41,7 @@ const backgroundLayer5 = new Image();
 backgroundLayer5.src = "/data/background/layer-5.png";
 
 let gameSpeed = 5;
+// let gameFrame = 0;
 
 const slider = document.getElementById('slider');
 slider.value = gameSpeed;
@@ -65,6 +66,7 @@ function animate() {
     object.update();
     object.draw();
   })
+  // gameFrame--
   requestAnimationFrame(animate);
 }
 
