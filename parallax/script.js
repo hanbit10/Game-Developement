@@ -3,20 +3,6 @@ const ctx = canvas.getContext("2d");
 const CANVAS_WIDTH = (canvas.width = 800);
 const CANVAS_HEIGHT = (canvas.height = 700);
 
-
-const backgroundLayer1 = new Image();
-backgroundLayer1.src = "/data/background/layer-1.png";
-const backgroundLayer2 = new Image();
-backgroundLayer2.src = "/data/background/layer-2.png";
-const backgroundLayer3 = new Image();
-backgroundLayer3.src = "/data/background/layer-3.png";
-const backgroundLayer4 = new Image();
-backgroundLayer4.src = "/data/background/layer-4.png";
-const backgroundLayer5 = new Image();
-backgroundLayer5.src = "/data/background/layer-5.png";
-
-let gameSpeed = 5;
-
 class Layer {
   constructor(image, speedModifier) {
     this.x = 0;
@@ -32,11 +18,11 @@ class Layer {
   update() {
     this.speed = gameSpeed * this.speedModifier;
     if(this.x <= -this.width) {
-      this.x = this.width + this.x - this.speed
+      this.x = this.width + this.x2 - this.speed
     }
 
     if(this.x2 <= -this.width ) {
-      this.x2 = this.width + this.x2 - this.speed
+      this.x2 = this.width + this.x - this.speed
     }
 
     this.x = Math.floor(this.x - this.speed);
@@ -48,6 +34,28 @@ class Layer {
     ctx.drawImage(this.image, this.x2, this.y, this.width, this.height);
   }
 }
+
+const backgroundLayer1 = new Image();
+backgroundLayer1.src = "/data/background/layer-1.png";
+const backgroundLayer2 = new Image();
+backgroundLayer2.src = "/data/background/layer-2.png";
+const backgroundLayer3 = new Image();
+backgroundLayer3.src = "/data/background/layer-3.png";
+const backgroundLayer4 = new Image();
+backgroundLayer4.src = "/data/background/layer-4.png";
+const backgroundLayer5 = new Image();
+backgroundLayer5.src = "/data/background/layer-5.png";
+
+let gameSpeed = 5;
+
+const slider = document.getElementById('slider');
+slider.value = gameSpeed;
+const showGameSpeed = document.getElementById("showGameSpeed");
+showGameSpeed.innerHTML = gameSpeed;
+slider.addEventListener("change", function(e){
+  gameSpeed = e.target.value
+  showGameSpeed.innerHTML = e.target.value
+})
 
 const layer1 = new Layer(backgroundLayer1, 0.2)
 const layer2 = new Layer(backgroundLayer2, 0.4)
