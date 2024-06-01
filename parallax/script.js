@@ -5,18 +5,18 @@ const CANVAS_HEIGHT = (canvas.height = 700);
 let gameSpeed = 5;
 
 const backgroundLayer1 = new Image();
-backgroundLayer1.src = "./data/background/layer-1.png";
+backgroundLayer1.src = "/data/background/layer-1.png";
 const backgroundLayer2 = new Image();
-backgroundLayer2.src = "./data/background/layer-2.png";
+backgroundLayer2.src = "/data/background/layer-2.png";
 const backgroundLayer3 = new Image();
-backgroundLayer3.src = "./data/background/layer-3.png";
+backgroundLayer3.src = "/data/background/layer-3.png";
 const backgroundLayer4 = new Image();
-backgroundLayer4.src = "./data/background/layer-4.png";
+backgroundLayer4.src = "/data/background/layer-4.png";
 const backgroundLayer5 = new Image();
-backgroundLayer5.src = "./data/background/layer-5.png";
+backgroundLayer5.src = "/data/background/layer-5.png";
 
 function animate() {
-  drawImage(backgroundLayer1, 0, 0);
+  ctx.drawImage(backgroundLayer5, 0, 0);
   requestAnimationFrame(animate);
 }
 

@@ -12,14 +12,6 @@ body {
   left: 50%;
 }
 
-.controls {
-  position: absolute;
-  z-index: 10;
-  top: 50px;
-  left: 50%;
-  transform: translate(-50%);
-}
-
 .controls,
 select,
 option {
